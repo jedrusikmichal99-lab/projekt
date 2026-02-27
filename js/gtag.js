@@ -19,9 +19,9 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             const section = this.getAttribute('href').replace('#', '');
             const navItem = navItems.find(item => item.id === section);
-            gtag('event', 'klikniecie_menu', {
+            const eventName = 'menu_' + section;
+            gtag('event', eventName, {
                 'event_category': 'Nawigacja',
-                'element_menu': section,
                 'tekst_elementu': this.textContent.trim(),
                 'pozycja_w_menu': navItem ? navItem.position : index + 1,
                 'typ_menu': 'menu_glowne',
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const logo = document.querySelector('#navbar .logo');
     if (logo) {
         logo.addEventListener('click', function() {
-            gtag('event', 'klikniecie_logo', {
+            gtag('event', 'logo_biura_ogrodowe', {
                 'event_category': 'Nawigacja',
                 'lokalizacja': 'naglowek',
                 'urzadzenie': window.innerWidth <= 768 ? 'mobilne' : 'desktop'
@@ -507,11 +507,11 @@ document.addEventListener('DOMContentLoaded', function() {
         btn.addEventListener('click', function() {
             const newLang = this.getAttribute('data-lang');
             const previousLang = currentLanguage;
+            const eventName = 'jezyk_' + newLang.toUpperCase();
 
-            gtag('event', 'zmiana_jezyka', {
+            gtag('event', eventName, {
                 'event_category': 'Ustawienia',
                 'jezyk_z': previousLang,
-                'jezyk_na': newLang,
                 'czy_zmiana': previousLang !== newLang
             });
 
@@ -616,48 +616,6 @@ document.addEventListener('DOMContentLoaded', function() {
             'osiagnieta_glebokosc_przewijania': Math.max(...scrollTracked, 0),
             'odwiedzone_sekcje': Object.keys(sectionViewedOnce).join(',')
         });
-    });
-
-    const elementsToTrackVisibility = [
-        { selector: '.hero-content .primary-btn', name: 'hero_cta_button' },
-        { selector: '.char-card', name: 'characteristic_card', multiple: true },
-        { selector: '.model-card', name: 'model_card', multiple: true }
-    ];
-
-    const visibilityTracked = {};
-
-    const visibilityObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const trackingKey = entry.target.dataset.trackingKey;
-                if (!visibilityTracked[trackingKey]) {
-                    visibilityTracked[trackingKey] = true;
-                    gtag('event', 'element_widoczny', {
-                        'event_category': 'Widocznosc',
-                        'nazwa_elementu': entry.target.dataset.trackingName,
-                        'indeks_elementu': entry.target.dataset.trackingIndex || 0
-                    });
-                }
-            }
-        });
-    }, { threshold: 0.8 });
-
-    elementsToTrackVisibility.forEach(config => {
-        if (config.multiple) {
-            document.querySelectorAll(config.selector).forEach((el, index) => {
-                el.dataset.trackingKey = `${config.name}_${index}`;
-                el.dataset.trackingName = config.name;
-                el.dataset.trackingIndex = index + 1;
-                visibilityObserver.observe(el);
-            });
-        } else {
-            const el = document.querySelector(config.selector);
-            if (el) {
-                el.dataset.trackingKey = config.name;
-                el.dataset.trackingName = config.name;
-                visibilityObserver.observe(el);
-            }
-        }
     });
 
     document.addEventListener('copy', function(e) {
