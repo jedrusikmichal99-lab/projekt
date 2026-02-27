@@ -9,17 +9,17 @@ const translations = {
             contact: "Kontakt"
         },
         hero: {
-            title: "Twoj Ogrod. Twoje Biuro.",
-            subtitle: "Projektujemy i produkujemy nowoczesne, energooszczedne biura ogrodowe, idealne do pracy zdalnej.",
-            cta: "Zapytaj o Wycene"
+            title: "Tw\u00f3j Ogr\u00f3d. Twoje Biuro.",
+            subtitle: "Projektujemy i produkujemy nowoczesne, energooszcz\u0119dne biura ogrodowe, idealne do pracy zdalnej.",
+            cta: "Zapytaj o Wycen\u0119"
         },
         description: {
-            title: "Praca w Harmonii z Natura",
-            text: "WMW S.C., to ekspert z 15-letnim doswiadczeniem w programowaniu i precyzyjnej produkcji. To unikalne polaczenie wiedzy technicznej i dbalosc o szczegoly przenosimy do kazdego projektu biura ogrodowego. Nasze moduly to nie tylko budynki, to wysoce funkcjonalne, ciche i komfortowe przestrzenie robocze, zaprojektowane, aby maksymalizowac Twoja produktywnosc.",
+            title: "Praca w Harmonii z Natur\u0105",
+            text: "WMW S.C., to ekspert z 15-letnim do\u015bwiadczeniem w programowaniu i precyzyjnej produkcji. To unikalne po\u0142\u0105czenie wiedzy technicznej i dba\u0142o\u015b\u0107 o szczeg\u00f3\u0142y przenosimy do ka\u017cdego projektu biura ogrodowego. Nasze modu\u0142y to nie tylko budynki, to wysoce funkcjonalne, ciche i komfortowe przestrzenie robocze, zaprojektowane, aby maksymalizowa\u0107 Twoj\u0105 produktywno\u015b\u0107.",
             whyTitle: "Dlaczego nasze biuro ogrodowe?",
-            feature1: "15 Lat Precyzji: Doswiadczenie produkcyjne gwarantuje jakosc i trwalosc.",
+            feature1: "15 Lat Precyzji: Do\u015bwiadczenie produkcyjne gwarantuje jako\u015b\u0107 i trwa\u0142o\u015b\u0107.",
             feature2: "Zielone Dachy: Lepsza izolacja, retencja wody i integracja z krajobrazem.",
-            feature3: "Naturalne Materialy: Uzywamy drewna jako glownego materialu, tworzac cieple i inspirujace wnetrza.",
+            feature3: "Naturalne Materia\u0142y: U\u017cywamy drewna jako g\u0142\u00f3wnego materia\u0142u, tworz\u0105c ciep\u0142e i inspiruj\u0105ce wn\u0119trza.",
             feature4: "Komfort Akustyczny: Idealne warunki do wideokonferencji i skupienia.",
             cta: "Zobacz Nasze Realizacje"
         },
@@ -28,27 +28,27 @@ const translations = {
             subtitle: "Poznaj kluczowe cechy naszych biur ogrodowych",
             thermal: {
                 title: "Izolacja Termiczna",
-                desc: "Najwyzszej klasy izolacja zapewniajaca komfort przez caly rok - cieply w zimie, chlodne latem."
+                desc: "Najwy\u017cszej klasy izolacja zapewniaj\u0105ca komfort przez ca\u0142y rok - ciep\u0142y w zimie, ch\u0142odne latem."
             },
             acoustic: {
                 title: "Komfort Akustyczny",
-                desc: "Specjalistyczne materialy tlumace dzwieki zewnetrzne, idealne do wideokonferencji."
+                desc: "Specjalistyczne materia\u0142y t\u0142umi\u0105ce d\u017awi\u0119ki zewn\u0119trzne, idealne do wideokonferencji."
             },
             green: {
                 title: "Zielone Dachy",
                 desc: "Opcja dachu zielonego dla lepszej izolacji i naturalnej integracji z ogrodem."
             },
             natural: {
-                title: "Naturalne Materialy",
-                desc: "Drewno jako glowny material konstrukcyjny tworzacy zdrowe i przyjazne srodowisko pracy."
+                title: "Naturalne Materia\u0142y",
+                desc: "Drewno jako g\u0142\u00f3wny materia\u0142 konstrukcyjny tworz\u0105cy zdrowe i przyjazne \u015brodowisko pracy."
             },
             energy: {
-                title: "Energooszczednosc",
-                desc: "Nowoczesne rozwiazania minimalizujace zuzycie energii i koszty eksploatacji."
+                title: "Energooszcz\u0119dno\u015b\u0107",
+                desc: "Nowoczesne rozwi\u0105zania minimalizuj\u0105ce zu\u017cycie energii i koszty eksploatacji."
             },
             assembly: {
-                title: "Szybki Montaz",
-                desc: "Profesjonalny montaz w kilka dni bez uciazliwych prac budowlanych."
+                title: "Szybki Monta\u017c",
+                desc: "Profesjonalny monta\u017c w kilka dni bez uci\u0105\u017cliwych prac budowlanych."
             }
         },
         models: {
@@ -58,86 +58,86 @@ const translations = {
                 name: "Small",
                 desc: "Kompaktowe biuro dla jednej osoby",
                 persons: "1 osoba",
-                area: "ok. 6-8 m2"
+                area: "ok. 6-8 m\u00b2"
             },
             medium: {
                 name: "Medium",
                 desc: "Standardowe biuro z miejscem na spotkania",
                 persons: "1-2 osoby",
-                area: "ok. 10-12 m2"
+                area: "ok. 10-12 m\u00b2"
             },
             large: {
                 name: "Large",
-                desc: "Przestronne biuro dla zespolu",
+                desc: "Przestronne biuro dla zespo\u0142u",
                 persons: "2-4 osoby",
-                area: "ok. 15-20 m2"
+                area: "ok. 15-20 m\u00b2"
             },
             economic: "Ekonomiczny",
-            prestige: "Prestiz",
+            prestige: "Presti\u017c",
             economicFeatures: {
                 title: "Standard Ekonomiczny",
                 f1: "Podstawowa izolacja termiczna",
                 f2: "Standardowe okna PCV",
                 f3: "Podstawowa instalacja elektryczna",
-                f4: "Panele scienne w jasnych kolorach",
+                f4: "Panele \u015bcienne w jasnych kolorach",
                 f5: "Ogrzewanie elektryczne (opcja)"
             },
             prestigeFeatures: {
-                title: "Standard Prestiz",
+                title: "Standard Presti\u017c",
                 f1: "Premium izolacja termiczna i akustyczna",
                 f2: "Okna drewniane lub aluminiowe",
                 f3: "Rozbudowana instalacja elektryczna + LAN",
-                f4: "Fornirowane panele scienne",
+                f4: "Fornirowane panele \u015bcienne",
                 f5: "Klimatyzacja z grzaniem w cenie",
                 f6: "Zielony dach w cenie",
-                f7: "Oswietlenie LED premium"
+                f7: "O\u015bwietlenie LED premium"
             },
             dimensions: "Wymiary",
             usableArea: "Powierzchnia",
             workstations: "Stanowiska",
-            width: "Szerokosc",
-            depth: "Glebokosc",
-            height: "Wysokosc",
+            width: "Szeroko\u015b\u0107",
+            depth: "G\u0142\u0119boko\u015b\u0107",
+            height: "Wysoko\u015b\u0107",
             toBeConfigured: "Do ustalenia",
-            askPrice: "Zapytaj o Wycene"
+            askPrice: "Zapytaj o Wycen\u0119"
         },
         gallery: {
             title: "Nasze Projekty",
-            subtitle: "Inspirujace przestrzenie stworzone z mysla o efektywnosci i designie."
+            subtitle: "Inspiruj\u0105ce przestrzenie stworzone z my\u015bl\u0105 o efektywno\u015bci i designie."
         },
         contact: {
-            title: "Skontaktuj Sie z Producentem",
-            text: "Jestes gotowy, aby przeniesc swoja prace do ogrodu? Skontaktuj sie z nami bezposrednio. Odpowiemy na wszystkie pytania dotyczace personalizacji, montazu i wyceny.",
+            title: "Skontaktuj Si\u0119 z Producentem",
+            text: "Jeste\u015b gotowy, aby przenie\u015b\u0107 swoj\u0105 prac\u0119 do ogrodu? Skontaktuj si\u0119 z nami bezpo\u015brednio. Odpowiemy na wszystkie pytania dotycz\u0105ce personalizacji, monta\u017cu i wyceny.",
             company: "WMW S.C.",
-            phoneMichal: "Telefon Michal",
+            phoneMichal: "Telefon Micha\u0142",
             phoneTomasz: "Telefon Tomasz",
             address: "Adres Produkcji",
-            callNow: "Zadzwon Teraz",
-            formName: "Imie i Nazwisko",
+            callNow: "Zadzwo\u0144 Teraz",
+            formName: "Imi\u0119 i Nazwisko",
             formEmail: "Adres E-mail",
-            formMessage: "Wiadomosc",
-            formProduct: "Interesujacy model",
+            formMessage: "Wiadomo\u015b\u0107",
+            formProduct: "Interesuj\u0105cy model",
             formProductDefault: "Wybierz model (opcjonalnie)",
-            formSubmit: "Wyslij Zapytanie"
+            formSubmit: "Wy\u015blij Zapytanie"
         },
         footer: {
-            rights: "Wszystkie prawa zastrzezone.",
+            rights: "Wszystkie prawa zastrze\u017cone.",
             production: "Projekt i Produkcja",
-            privacy: "Polityka Prywatnosci"
+            privacy: "Polityka Prywatno\u015bci"
         },
         cookies: {
             title: "Informacja o plikach cookie",
-            text: "Nasza strona internetowa uzywa plikow cookie. Niektore z nich sa niezbedne do funkcjonowania strony, podczas gdy inne pomagaja nam ulepszac te strone i Twoje wrazenia.",
-            necessary: "Niezbedne",
-            necessaryDesc: "Wymagane do poprawnego dzialania podstawowych funkcji strony.",
+            text: "Nasza strona internetowa u\u017cywa plik\u00f3w cookie. Niekt\u00f3re z nich s\u0105 niezb\u0119dne do funkcjonowania strony, podczas gdy inne pomagaj\u0105 nam ulepsza\u0107 t\u0119 stron\u0119 i Twoje wra\u017cenia.",
+            necessary: "Niezb\u0119dne",
+            necessaryDesc: "Wymagane do poprawnego dzia\u0142ania podstawowych funkcji strony.",
             analytics: "Analityczne",
-            analyticsDesc: "Pomagaja nam zrozumiec, jak odwiedzajacy korzystaja ze strony.",
+            analyticsDesc: "Pomagaj\u0105 nam zrozumie\u0107, jak odwiedzaj\u0105cy korzystaj\u0105 ze strony.",
             marketing: "Marketingowe",
-            marketingDesc: "Uzywane do wyswietlania spersonalizowanych reklam.",
+            marketingDesc: "U\u017cywane do wy\u015bwietlania spersonalizowanych reklam.",
             acceptAll: "Akceptuj wszystkie",
             savePrefs: "Zapisz ustawienia",
-            rejectAll: "Odrzuc wszystkie",
-            moreInfo: "Wiecej informacji"
+            rejectAll: "Odrzu\u0107 wszystkie",
+            moreInfo: "Wi\u0119cej informacji"
         }
     },
     en: {
@@ -199,19 +199,19 @@ const translations = {
                 name: "Small",
                 desc: "Compact office for one person",
                 persons: "1 person",
-                area: "approx. 6-8 m2"
+                area: "approx. 6-8 m\u00b2"
             },
             medium: {
                 name: "Medium",
                 desc: "Standard office with meeting space",
                 persons: "1-2 people",
-                area: "approx. 10-12 m2"
+                area: "approx. 10-12 m\u00b2"
             },
             large: {
                 name: "Large",
                 desc: "Spacious office for a team",
                 persons: "2-4 people",
-                area: "approx. 15-20 m2"
+                area: "approx. 15-20 m\u00b2"
             },
             economic: "Economic",
             prestige: "Prestige",
@@ -284,81 +284,81 @@ const translations = {
     de: {
         nav: {
             home: "Start",
-            description: "Uber uns",
+            description: "\u00dcber uns",
             characteristics: "Merkmale",
             models: "Modelle",
             gallery: "Galerie",
             contact: "Kontakt"
         },
         hero: {
-            title: "Ihr Garten. Ihr Buro.",
-            subtitle: "Wir entwerfen und produzieren moderne, energieeffiziente Gartenburos, ideal fur Remote-Arbeit.",
+            title: "Ihr Garten. Ihr B\u00fcro.",
+            subtitle: "Wir entwerfen und produzieren moderne, energieeffiziente Gartenb\u00fcros, ideal f\u00fcr Remote-Arbeit.",
             cta: "Angebot anfordern"
         },
         description: {
             title: "Arbeiten im Einklang mit der Natur",
-            text: "WMW S.C. ist ein Experte mit 15 Jahren Erfahrung in Programmierung und Prazisionsfertigung. Diese einzigartige Kombination aus technischem Wissen und Liebe zum Detail bringen wir in jedes Gartenburo-Projekt ein. Unsere Module sind nicht nur Gebaude - sie sind hochfunktionale, ruhige und komfortable Arbeitsraume, die Ihre Produktivitat maximieren.",
-            whyTitle: "Warum unser Gartenburo wahlen?",
-            feature1: "15 Jahre Prazision: Fertigungserfahrung garantiert Qualitat und Haltbarkeit.",
-            feature2: "Grundacher: Bessere Isolierung, Wasserruckhaltung und Landschaftsintegration.",
-            feature3: "Naturliche Materialien: Wir verwenden Holz als Hauptmaterial und schaffen warme, inspirierende Innenraume.",
-            feature4: "Akustischer Komfort: Ideale Bedingungen fur Videokonferenzen und Konzentration.",
+            text: "WMW S.C. ist ein Experte mit 15 Jahren Erfahrung in Programmierung und Pr\u00e4zisionsfertigung. Diese einzigartige Kombination aus technischem Wissen und Liebe zum Detail bringen wir in jedes Gartenb\u00fcro-Projekt ein. Unsere Module sind nicht nur Geb\u00e4ude - sie sind hochfunktionale, ruhige und komfortable Arbeitsr\u00e4ume, die Ihre Produktivit\u00e4t maximieren.",
+            whyTitle: "Warum unser Gartenb\u00fcro w\u00e4hlen?",
+            feature1: "15 Jahre Pr\u00e4zision: Fertigungserfahrung garantiert Qualit\u00e4t und Haltbarkeit.",
+            feature2: "Gr\u00fcnd\u00e4cher: Bessere Isolierung, Wasserr\u00fcckhaltung und Landschaftsintegration.",
+            feature3: "Nat\u00fcrliche Materialien: Wir verwenden Holz als Hauptmaterial und schaffen warme, inspirierende Innenr\u00e4ume.",
+            feature4: "Akustischer Komfort: Ideale Bedingungen f\u00fcr Videokonferenzen und Konzentration.",
             cta: "Unsere Projekte ansehen"
         },
         characteristics: {
             title: "Produktmerkmale",
-            subtitle: "Entdecken Sie die wichtigsten Merkmale unserer Gartenburos",
+            subtitle: "Entdecken Sie die wichtigsten Merkmale unserer Gartenb\u00fcros",
             thermal: {
-                title: "Warmeisolierung",
-                desc: "Erstklassige Isolierung fur Komfort das ganze Jahr uber - warm im Winter, kuhl im Sommer."
+                title: "W\u00e4rmeisolierung",
+                desc: "Erstklassige Isolierung f\u00fcr Komfort das ganze Jahr \u00fcber - warm im Winter, k\u00fchl im Sommer."
             },
             acoustic: {
                 title: "Akustischer Komfort",
-                desc: "Spezialmaterialien dampfen Aussengerausche, perfekt fur Videokonferenzen."
+                desc: "Spezialmaterialien d\u00e4mpfen Au\u00dfenger\u00e4usche, perfekt f\u00fcr Videokonferenzen."
             },
             green: {
-                title: "Grundacher",
-                desc: "Grundach-Option fur bessere Isolierung und naturliche Gartenintegration."
+                title: "Gr\u00fcnd\u00e4cher",
+                desc: "Gr\u00fcndach-Option f\u00fcr bessere Isolierung und nat\u00fcrliche Gartenintegration."
             },
             natural: {
-                title: "Naturliche Materialien",
+                title: "Nat\u00fcrliche Materialien",
                 desc: "Holz als Hauptbaumaterial schafft eine gesunde und freundliche Arbeitsumgebung."
             },
             energy: {
                 title: "Energieeffizienz",
-                desc: "Moderne Losungen minimieren Energieverbrauch und Betriebskosten."
+                desc: "Moderne L\u00f6sungen minimieren Energieverbrauch und Betriebskosten."
             },
             assembly: {
                 title: "Schnelle Montage",
-                desc: "Professionelle Installation in wenigen Tagen ohne lastige Bauarbeiten."
+                desc: "Professionelle Installation in wenigen Tagen ohne l\u00e4stige Bauarbeiten."
             }
         },
         models: {
             title: "Unsere Modelle",
-            subtitle: "Wahlen Sie die Grosse und den Standard, der Ihren Bedurfnissen entspricht",
+            subtitle: "W\u00e4hlen Sie die Gr\u00f6\u00dfe und den Standard, der Ihren Bed\u00fcrfnissen entspricht",
             small: {
                 name: "Small",
-                desc: "Kompaktes Buro fur eine Person",
+                desc: "Kompaktes B\u00fcro f\u00fcr eine Person",
                 persons: "1 Person",
-                area: "ca. 6-8 m2"
+                area: "ca. 6-8 m\u00b2"
             },
             medium: {
                 name: "Medium",
-                desc: "Standardburo mit Besprechungsbereich",
+                desc: "Standardb\u00fcro mit Besprechungsbereich",
                 persons: "1-2 Personen",
-                area: "ca. 10-12 m2"
+                area: "ca. 10-12 m\u00b2"
             },
             large: {
                 name: "Large",
-                desc: "Geraumiges Buro fur ein Team",
+                desc: "Ger\u00e4umiges B\u00fcro f\u00fcr ein Team",
                 persons: "2-4 Personen",
-                area: "ca. 15-20 m2"
+                area: "ca. 15-20 m\u00b2"
             },
             economic: "Wirtschaftlich",
             prestige: "Prestige",
             economicFeatures: {
                 title: "Wirtschaftlicher Standard",
-                f1: "Grundlegende Warmeisolierung",
+                f1: "Grundlegende W\u00e4rmeisolierung",
                 f2: "Standard-PVC-Fenster",
                 f3: "Grundlegende Elektroinstallation",
                 f4: "Helle Wandpaneele",
@@ -366,40 +366,40 @@ const translations = {
             },
             prestigeFeatures: {
                 title: "Prestige Standard",
-                f1: "Premium Warme- und Schallisolierung",
+                f1: "Premium W\u00e4rme- und Schallisolierung",
                 f2: "Holz- oder Aluminiumfenster",
                 f3: "Erweiterte Elektroinstallation + LAN",
                 f4: "Furnierte Wandpaneele",
                 f5: "Klimaanlage mit Heizung inklusive",
-                f6: "Grundach inklusive",
+                f6: "Gr\u00fcndach inklusive",
                 f7: "Premium LED-Beleuchtung"
             },
             dimensions: "Abmessungen",
-            usableArea: "Flache",
-            workstations: "Arbeitsplatze",
+            usableArea: "Fl\u00e4che",
+            workstations: "Arbeitspl\u00e4tze",
             width: "Breite",
             depth: "Tiefe",
-            height: "Hohe",
+            height: "H\u00f6he",
             toBeConfigured: "Zu konfigurieren",
             askPrice: "Angebot anfordern"
         },
         gallery: {
             title: "Unsere Projekte",
-            subtitle: "Inspirierende Raume mit Fokus auf Effizienz und Design."
+            subtitle: "Inspirierende R\u00e4ume mit Fokus auf Effizienz und Design."
         },
         contact: {
             title: "Kontaktieren Sie den Hersteller",
             text: "Bereit, Ihre Arbeit in den Garten zu verlegen? Kontaktieren Sie uns direkt. Wir beantworten alle Fragen zu Anpassung, Installation und Preisgestaltung.",
             company: "WMW S.C.",
-            phoneMichal: "Telefon Michal",
+            phoneMichal: "Telefon Micha\u0142",
             phoneTomasz: "Telefon Tomasz",
             address: "Produktionsadresse",
             callNow: "Jetzt anrufen",
-            formName: "Vollstandiger Name",
+            formName: "Vollst\u00e4ndiger Name",
             formEmail: "E-Mail-Adresse",
             formMessage: "Nachricht",
             formProduct: "Interessantes Produkt",
-            formProductDefault: "Modell wahlen (optional)",
+            formProductDefault: "Modell w\u00e4hlen (optional)",
             formSubmit: "Anfrage senden"
         },
         footer: {
@@ -409,9 +409,9 @@ const translations = {
         },
         cookies: {
             title: "Cookie-Informationen",
-            text: "Unsere Website verwendet Cookies. Einige sind fur das Funktionieren der Website erforderlich, wahrend andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.",
+            text: "Unsere Website verwendet Cookies. Einige sind f\u00fcr das Funktionieren der Website erforderlich, w\u00e4hrend andere uns helfen, diese Website und Ihre Erfahrung zu verbessern.",
             necessary: "Notwendig",
-            necessaryDesc: "Erforderlich fur grundlegende Website-Funktionen.",
+            necessaryDesc: "Erforderlich f\u00fcr grundlegende Website-Funktionen.",
             analytics: "Analytisch",
             analyticsDesc: "Helfen uns zu verstehen, wie Besucher die Website nutzen.",
             marketing: "Marketing",
@@ -475,9 +475,9 @@ function updateMetaTags(lang) {
     const titleEl = document.querySelector('title');
     if (titleEl && t.hero) {
         const titles = {
-            pl: 'Biura Ogrodowe | Wysoka Jakosc i 15 Lat Doswiadczenia',
+            pl: 'Biura Ogrodowe | Wysoka Jako\u015b\u0107 i 15 Lat Do\u015bwiadczenia',
             en: 'Garden Offices | High Quality and 15 Years of Experience',
-            de: 'Gartenburos | Hohe Qualitat und 15 Jahre Erfahrung'
+            de: 'Gartenb\u00fcros | Hohe Qualit\u00e4t und 15 Jahre Erfahrung'
         };
         titleEl.textContent = titles[lang] || titles.pl;
     }
