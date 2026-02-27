@@ -548,7 +548,7 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; <span id="current-year">2024</span> Biura Ogrodowe. <span data-i18n="footer.rights">Wszystkie prawa zastrzezone.</span> | <span data-i18n="footer.production">Projekt i Produkcja</span>: WMW S.C.</p>
-                <a href="polityka-prywatnosci.html" data-i18n="footer.privacy">Polityka Prywatnosci</a>
+                <a href="polityka-prywatnosci.html" id="footer-privacy-link" data-i18n="footer.privacy">Polityka Prywatnosci</a>
             </div>
         </div>
     </footer>
@@ -597,7 +597,7 @@
                 <button id="cookie-reject-all" class="btn secondary-btn" data-i18n="cookies.rejectAll">Odrzuc wszystkie</button>
             </div>
 
-            <a href="polityka-prywatnosci.html" class="cookie-more-info" data-i18n="cookies.moreInfo">Wiecej informacji</a>
+            <a href="polityka-prywatnosci.html" id="cookie-more-info-link" class="cookie-more-info" data-i18n="cookies.moreInfo">Wiecej informacji</a>
         </div>
     </div>
 
@@ -609,11 +609,25 @@
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
 
+        function updatePrivacyLinks(lang) {
+            const footerLink = document.getElementById('footer-privacy-link');
+            const cookieLink = document.getElementById('cookie-more-info-link');
+            const langParam = lang !== 'pl' ? '?lang=' + lang : '';
+
+            if (footerLink) footerLink.href = 'polityka-prywatnosci.html' + langParam;
+            if (cookieLink) cookieLink.href = 'polityka-prywatnosci.html' + langParam;
+        }
+
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.addEventListener('click', function() {
                 const lang = this.getAttribute('data-lang');
                 setLanguage(lang);
+                updatePrivacyLinks(lang);
             });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePrivacyLinks(currentLang);
         });
     </script>
 </body>

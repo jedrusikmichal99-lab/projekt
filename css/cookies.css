@@ -7,8 +7,14 @@
     box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.15);
     z-index: 9999;
     padding: 0;
-    transform: translateY(0);
+    transform: translateY(100%);
+    opacity: 0;
     transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.cookie-banner.visible {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .cookie-banner.hiding {

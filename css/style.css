@@ -104,7 +104,7 @@ p.subtitle {
 }
 
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../fc0a7bd5-7b85-464c-936a-f0367aaf6757 (1).jpg') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('../images/biuro-ogrodowe-drewniane.jpg') no-repeat center center/cover;
     min-height: 100vh;
     display: flex;
     align-items: center;

@@ -12,11 +12,11 @@ document.addEventListener('DOMContentLoaded', function() {
     let bannerShownTime = null;
 
     if (savedConsent) {
-        banner.style.display = 'none';
         const consent = JSON.parse(savedConsent);
         applyConsent(consent);
     } else {
         bannerShownTime = Date.now();
+        banner.classList.add('visible');
     }
 
     if (acceptAllBtn) {
@@ -101,10 +101,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function hideBanner() {
-        banner.classList.add('hiding');
-        setTimeout(() => {
-            banner.style.display = 'none';
-            banner.classList.remove('hiding');
-        }, 300);
+        banner.classList.remove('visible');
     }
 });
