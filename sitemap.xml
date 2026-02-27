@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>https://biuraogrodowe.pl/</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pl" href="https://biuraogrodowe.pl/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://biuraogrodowe.pl/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://biuraogrodowe.pl/?lang=de"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://biuraogrodowe.pl/"/>
+    <image:image>
+      <image:loc>https://biuraogrodowe.pl/images/biuro-ogrodowe-drewniane.jpg</image:loc>
+      <image:title>Nowoczesne biuro ogrodowe z drewniana elewacja</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://biuraogrodowe.pl/images/biuro-ogrodowe-zielony-dach.jpg</image:loc>
+      <image:title>Biuro ogrodowe z zielonym dachem i drewnianym tarasem</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://biuraogrodowe.pl/images/biuro-ogrodowe-las.jpg</image:loc>
+      <image:title>Biuro w otoczeniu lesnym z miejscem do siedzenia na zewnatrz</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://biuraogrodowe.pl/images/biuro-ogrodowe-regal.jpg</image:loc>
+      <image:title>Biuro z widocznym regalem na ksiazki i zielona sciana</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://biuraogrodowe.pl/images/biuro-ogrodowe-przeszklenie.jpg</image:loc>
+      <image:title>Przestronne biuro modulowe z duzym przeszkleniem</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://biuraogrodowe.pl/images/biuro-ogrodowe-minimalistyczne.jpg</image:loc>
+      <image:title>Biuro ogrodowe z minimalistycznym fotelem</image:title>
+    </image:image>
+  </url>
+
+  <url>
+    <loc>https://biuraogrodowe.pl/polityka-prywatnosci.html</loc>
+    <lastmod>2025-02-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
+</urlset>
