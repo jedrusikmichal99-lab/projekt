@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             const section = this.getAttribute('href').replace('#', '');
             const navItem = navItems.find(item => item.id === section);
-            gtag('event', 'navigation_click', {
-                'event_category': 'Navigation',
-                'nav_item_id': section,
-                'nav_item_text': this.textContent.trim(),
-                'nav_position': navItem ? navItem.position : index + 1,
-                'nav_type': 'main_menu',
-                'device_type': window.innerWidth <= 768 ? 'mobile' : 'desktop'
+            gtag('event', 'klikniecie_menu', {
+                'event_category': 'Nawigacja',
+                'element_menu': section,
+                'tekst_elementu': this.textContent.trim(),
+                'pozycja_w_menu': navItem ? navItem.position : index + 1,
+                'typ_menu': 'menu_glowne',
+                'urzadzenie': window.innerWidth <= 768 ? 'mobilne' : 'desktop'
             });
         });
     });
@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const logo = document.querySelector('#navbar .logo');
     if (logo) {
         logo.addEventListener('click', function() {
-            gtag('event', 'logo_click', {
-                'event_category': 'Navigation',
-                'click_location': 'header',
-                'device_type': window.innerWidth <= 768 ? 'mobile' : 'desktop'
+            gtag('event', 'klikniecie_logo', {
+                'event_category': 'Nawigacja',
+                'lokalizacja': 'naglowek',
+                'urzadzenie': window.innerWidth <= 768 ? 'mobilne' : 'desktop'
             });
         });
     }
@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (hamburger) {
         hamburger.addEventListener('click', function() {
             const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            gtag('event', 'hamburger_menu_toggle', {
-                'event_category': 'Navigation',
-                'action': isExpanded ? 'close' : 'open',
-                'device_type': 'mobile'
+            gtag('event', 'menu_mobilne', {
+                'event_category': 'Nawigacja',
+                'akcja': isExpanded ? 'zamkniecie' : 'otwarcie',
+                'urzadzenie': 'mobilne'
             });
         });
     }
@@ -56,13 +56,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const heroCta = document.querySelector('.hero-content .primary-btn[href="#kontakt"]');
     if (heroCta) {
         heroCta.addEventListener('click', function() {
-            gtag('event', 'cta_click', {
+            gtag('event', 'zapytaj_o_wycene_hero', {
                 'event_category': 'CTA',
-                'cta_type': 'quote_request',
-                'cta_text': this.textContent.trim(),
-                'cta_location': 'hero',
-                'section_id': 'hero',
-                'button_style': 'primary'
+                'przycisk': 'Zapytaj o wycene',
+                'lokalizacja': 'hero',
+                'sekcja': 'hero',
+                'tekst_przycisku': this.textContent.trim()
             });
         });
     }
@@ -70,13 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const descriptionCta = document.querySelector('.description-section .secondary-btn[href="#galeria"]');
     if (descriptionCta) {
         descriptionCta.addEventListener('click', function() {
-            gtag('event', 'cta_click', {
+            gtag('event', 'zobacz_galerie_opis', {
                 'event_category': 'CTA',
-                'cta_type': 'view_gallery',
-                'cta_text': this.textContent.trim(),
-                'cta_location': 'description_section',
-                'section_id': 'opis',
-                'button_style': 'secondary'
+                'przycisk': 'Zobacz galerie',
+                'lokalizacja': 'sekcja_opisu',
+                'sekcja': 'opis',
+                'tekst_przycisku': this.textContent.trim()
             });
         });
     }
@@ -96,17 +94,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const activeStandard = card.querySelector('.standard-toggle.active');
                 const standardType = activeStandard?.classList.contains('toggle-prestige') ? 'Prestiz' : 'Ekonomiczny';
 
-                gtag('event', 'cta_click', {
+                gtag('event', 'zapytaj_o_wycene_modele', {
                     'event_category': 'CTA',
-                    'cta_type': 'quote_request',
-                    'cta_text': this.textContent.trim(),
-                    'cta_location': 'models_section',
-                    'section_id': 'modele',
-                    'model_name': modelName,
-                    'model_standard': standardType,
-                    'card_position': cardIndex + 1,
-                    'is_featured_model': isFeatured,
-                    'button_style': 'primary'
+                    'przycisk': 'Zapytaj o wycene',
+                    'lokalizacja': 'sekcja_modeli',
+                    'sekcja': 'modele',
+                    'nazwa_modelu': modelName,
+                    'standard_modelu': standardType,
+                    'pozycja_karty': cardIndex + 1,
+                    'model_wyrozniany': isFeatured,
+                    'tekst_przycisku': this.textContent.trim()
                 });
             });
         }
@@ -117,23 +114,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 const selectedStandard = this.classList.contains('toggle-prestige') ? 'Prestiz' : 'Ekonomiczny';
                 const previousStandard = modelStandardSelections[modelName];
 
-                gtag('event', 'model_standard_toggle', {
-                    'event_category': 'Model Interaction',
-                    'model_name': modelName,
-                    'selected_standard': selectedStandard,
-                    'previous_standard': previousStandard,
-                    'card_position': cardIndex + 1,
-                    'is_featured_model': isFeatured
+                gtag('event', 'zmiana_standardu_modelu', {
+                    'event_category': 'Interakcja_z_modelem',
+                    'nazwa_modelu': modelName,
+                    'wybrany_standard': selectedStandard,
+                    'poprzedni_standard': previousStandard,
+                    'pozycja_karty': cardIndex + 1,
+                    'model_wyrozniany': isFeatured
                 });
 
                 modelStandardSelections[modelName] = selectedStandard;
 
                 const modelsWithPrestige = Object.values(modelStandardSelections).filter(s => s === 'Prestiz').length;
                 if (modelsWithPrestige >= 2) {
-                    gtag('event', 'model_comparison_behavior', {
-                        'event_category': 'Model Interaction',
-                        'action': 'comparing_prestige_options',
-                        'models_on_prestige': modelsWithPrestige
+                    gtag('event', 'porownywanie_modeli', {
+                        'event_category': 'Interakcja_z_modelem',
+                        'akcja': 'porownywanie_opcji_prestiz',
+                        'liczba_modeli_prestiz': modelsWithPrestige
                     });
                 }
             });
@@ -148,12 +145,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (hoverStartTime) {
                 const hoverDuration = Math.round((Date.now() - hoverStartTime) / 1000);
                 if (hoverDuration >= 2) {
-                    gtag('event', 'model_card_hover', {
-                        'event_category': 'Model Interaction',
-                        'model_name': modelName,
-                        'hover_duration_seconds': hoverDuration,
-                        'card_position': cardIndex + 1,
-                        'is_featured_model': isFeatured
+                    gtag('event', 'najechanie_na_model', {
+                        'event_category': 'Interakcja_z_modelem',
+                        'nazwa_modelu': modelName,
+                        'czas_najechania_sekundy': hoverDuration,
+                        'pozycja_karty': cardIndex + 1,
+                        'model_wyrozniany': isFeatured
                     });
                 }
                 hoverStartTime = null;
@@ -164,13 +161,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const callNowBtn = document.querySelector('.contact-section .call-btn');
     if (callNowBtn) {
         callNowBtn.addEventListener('click', function() {
-            gtag('event', 'cta_click', {
+            gtag('event', 'zadzwon_teraz_kontakt', {
                 'event_category': 'CTA',
-                'cta_type': 'call_now',
-                'cta_text': this.textContent.trim(),
-                'cta_location': 'contact_section',
-                'section_id': 'kontakt',
-                'button_style': 'primary'
+                'przycisk': 'Zadzwon teraz',
+                'lokalizacja': 'sekcja_kontakt',
+                'sekcja': 'kontakt',
+                'tekst_przycisku': this.textContent.trim()
             });
         });
     }
@@ -186,13 +182,12 @@ document.addEventListener('DOMContentLoaded', function() {
             link.addEventListener('click', function() {
                 const isCallButton = this.classList.contains('call-btn');
                 const section = this.closest('section');
-                gtag('event', 'phone_click', {
-                    'event_category': 'Contact',
-                    'phone_number': contact.phone,
-                    'contact_person': contact.person,
-                    'click_type': isCallButton ? 'cta_button' : 'text_link',
-                    'section_id': section?.id || 'unknown',
-                    'section_name': section?.id || 'unknown'
+                gtag('event', 'klikniecie_telefon', {
+                    'event_category': 'Kontakt',
+                    'numer_telefonu': contact.phone,
+                    'osoba_kontaktowa': contact.person,
+                    'typ_klikniecia': isCallButton ? 'przycisk_cta' : 'link_tekstowy',
+                    'sekcja': section?.id || 'nieznana'
                 });
             });
         });
@@ -203,10 +198,10 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             const email = this.getAttribute('href').replace('mailto:', '');
             const section = this.closest('section');
-            gtag('event', 'email_click', {
-                'event_category': 'Contact',
-                'email_address': email,
-                'section_id': section?.id || 'unknown'
+            gtag('event', 'klikniecie_email', {
+                'event_category': 'Kontakt',
+                'adres_email': email,
+                'sekcja': section?.id || 'nieznana'
             });
         });
     });
@@ -235,21 +230,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (!formStartTime) {
                     formStartTime = Date.now();
-                    gtag('event', 'form_start', {
-                        'event_category': 'Form',
-                        'form_name': 'contact_form',
-                        'first_field': fieldName
+                    gtag('event', 'formularz_rozpoczety', {
+                        'event_category': 'Formularz',
+                        'nazwa_formularza': 'formularz_kontaktowy',
+                        'pierwsze_pole': fieldName
                     });
                 }
 
                 if (!fieldsInteracted.includes(fieldName)) {
                     fieldsInteracted.push(fieldName);
-                    gtag('event', 'form_field_focus', {
-                        'event_category': 'Form',
-                        'form_name': 'contact_form',
-                        'field_name': fieldName,
-                        'field_type': this.type || this.tagName.toLowerCase(),
-                        'fields_completed_count': fieldsInteracted.length
+                    gtag('event', 'formularz_pole_aktywne', {
+                        'event_category': 'Formularz',
+                        'nazwa_formularza': 'formularz_kontaktowy',
+                        'nazwa_pola': fieldName,
+                        'typ_pola': this.type || this.tagName.toLowerCase(),
+                        'liczba_wypelnionych_pol': fieldsInteracted.length
                     });
                 }
             });
@@ -263,12 +258,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     fieldTimes[fieldName] = (fieldTimes[fieldName] || 0) + timeOnField;
                 }
 
-                gtag('event', 'form_field_blur', {
-                    'event_category': 'Form',
-                    'form_name': 'contact_form',
-                    'field_name': fieldName,
-                    'field_filled': hasValue,
-                    'time_on_field_seconds': fieldTimes[fieldName] || 0
+                gtag('event', 'formularz_pole_opuszczone', {
+                    'event_category': 'Formularz',
+                    'nazwa_formularza': 'formularz_kontaktowy',
+                    'nazwa_pola': fieldName,
+                    'pole_wypelnione': hasValue,
+                    'czas_na_polu_sekundy': fieldTimes[fieldName] || 0
                 });
 
                 lastFieldFocus = null;
@@ -276,11 +271,11 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
             field.addEventListener('invalid', function() {
-                gtag('event', 'form_validation_error', {
-                    'event_category': 'Form',
-                    'form_name': 'contact_form',
-                    'field_name': this.id || this.name,
-                    'validation_message': this.validationMessage
+                gtag('event', 'formularz_blad_walidacji', {
+                    'event_category': 'Formularz',
+                    'nazwa_formularza': 'formularz_kontaktowy',
+                    'nazwa_pola': this.id || this.name,
+                    'komunikat_walidacji': this.validationMessage
                 });
             });
         });
@@ -293,14 +288,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const messageLength = messageField ? messageField.value.length : 0;
             const completionTime = formStartTime ? Math.round((Date.now() - formStartTime) / 1000) : 0;
 
-            gtag('event', 'form_submit', {
-                'event_category': 'Form',
-                'form_name': 'contact_form',
-                'selected_model': selectedProduct || 'not_selected',
-                'message_length': messageLength,
-                'form_completion_time_seconds': completionTime,
-                'fields_interacted_count': fieldsInteracted.length,
-                'field_times': JSON.stringify(fieldTimes)
+            gtag('event', 'formularz_wyslany', {
+                'event_category': 'Formularz',
+                'nazwa_formularza': 'formularz_kontaktowy',
+                'wybrany_model': selectedProduct || 'nie_wybrany',
+                'dlugosc_wiadomosci': messageLength,
+                'czas_wypelniania_sekundy': completionTime,
+                'liczba_interakcji_z_polami': fieldsInteracted.length,
+                'czasy_na_polach': JSON.stringify(fieldTimes)
             });
         });
 
@@ -309,13 +304,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 const timeSpent = Math.round((Date.now() - formStartTime) / 1000);
                 const filledFields = Array.from(formFields).filter(f => f.value.trim().length > 0).length;
 
-                gtag('event', 'form_abandonment', {
-                    'event_category': 'Form',
-                    'form_name': 'contact_form',
-                    'fields_interacted': fieldsInteracted.join(','),
-                    'fields_filled_count': filledFields,
-                    'time_spent_seconds': timeSpent,
-                    'last_field_focused': lastFieldFocus || 'unknown'
+                gtag('event', 'formularz_porzucony', {
+                    'event_category': 'Formularz',
+                    'nazwa_formularza': 'formularz_kontaktowy',
+                    'pola_z_interakcja': fieldsInteracted.join(','),
+                    'liczba_wypelnionych_pol': filledFields,
+                    'czas_spedzony_sekundy': timeSpent,
+                    'ostatnie_aktywne_pole': lastFieldFocus || 'nieznane'
                 });
             }
         });
@@ -340,11 +335,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (!sectionViewedOnce[sectionId]) {
                     sectionViewedOnce[sectionId] = true;
-                    gtag('event', 'section_view', {
-                        'event_category': 'Engagement',
-                        'section_id': sectionId,
-                        'section_name': sectionId,
-                        'viewport_percentage': Math.round(entry.intersectionRatio * 100)
+                    gtag('event', 'wyswietlenie_sekcji', {
+                        'event_category': 'Zaangazowanie',
+                        'sekcja': sectionId,
+                        'nazwa_sekcji': sectionId,
+                        'procent_widocznosci': Math.round(entry.intersectionRatio * 100)
                     });
                 }
             } else {
@@ -353,11 +348,11 @@ document.addEventListener('DOMContentLoaded', function() {
                     sectionTimes[sectionId].totalTime += timeInSection;
 
                     if (timeInSection >= 3) {
-                        gtag('event', 'section_time_spent', {
-                            'event_category': 'Engagement',
-                            'section_id': sectionId,
-                            'time_spent_seconds': timeInSection,
-                            'total_time_seconds': sectionTimes[sectionId].totalTime
+                        gtag('event', 'czas_w_sekcji', {
+                            'event_category': 'Zaangazowanie',
+                            'sekcja': sectionId,
+                            'czas_spedzony_sekundy': timeInSection,
+                            'calkowity_czas_sekundy': sectionTimes[sectionId].totalTime
                         });
                     }
 
@@ -376,12 +371,12 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             const fileName = this.getAttribute('href').split('/').pop();
             const section = this.closest('section');
-            gtag('event', 'file_download', {
-                'event_category': 'Downloads',
-                'file_name': fileName,
-                'file_type': 'pdf',
-                'link_text': this.textContent.trim(),
-                'section_id': section?.id || 'unknown'
+            gtag('event', 'pobranie_pliku', {
+                'event_category': 'Pobieranie',
+                'nazwa_pliku': fileName,
+                'typ_pliku': 'pdf',
+                'tekst_linku': this.textContent.trim(),
+                'sekcja': section?.id || 'nieznana'
             });
         });
     });
@@ -395,10 +390,10 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollDepths.forEach(depth => {
             if (scrollPercent >= depth && !scrollTracked.includes(depth)) {
                 scrollTracked.push(depth);
-                gtag('event', 'scroll_depth', {
-                    'event_category': 'Engagement',
-                    'scroll_percentage': depth,
-                    'page_height': document.documentElement.scrollHeight
+                gtag('event', 'glebokosc_przewijania', {
+                    'event_category': 'Zaangazowanie',
+                    'procent_przewiniecia': depth,
+                    'wysokosc_strony': document.documentElement.scrollHeight
                 });
             }
         });
@@ -414,13 +409,13 @@ document.addEventListener('DOMContentLoaded', function() {
             lightboxImagesViewed = 1;
             lightboxSessionStart = Date.now();
 
-            gtag('event', 'gallery_image_click', {
-                'event_category': 'Gallery',
-                'image_index': index + 1,
-                'image_total': galleryImages.length,
-                'image_filename': fileName,
-                'image_alt': this.alt || 'unknown',
-                'action': 'open_lightbox'
+            gtag('event', 'klikniecie_zdjecie_galerii', {
+                'event_category': 'Galeria',
+                'indeks_zdjecia': index + 1,
+                'liczba_zdjec': galleryImages.length,
+                'nazwa_pliku': fileName,
+                'alt_zdjecia': this.alt || 'nieznany',
+                'akcja': 'otwarcie_lightbox'
             });
         });
     });
@@ -434,12 +429,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeLightboxWithTracking = function(method) {
             const sessionDuration = lightboxSessionStart ? Math.round((Date.now() - lightboxSessionStart) / 1000) : 0;
 
-            gtag('event', 'lightbox_interaction', {
-                'event_category': 'Gallery',
-                'action': 'close',
-                'method': method,
-                'images_viewed_count': lightboxImagesViewed,
-                'session_duration_seconds': sessionDuration
+            gtag('event', 'zamkniecie_lightbox', {
+                'event_category': 'Galeria',
+                'akcja': 'zamkniecie',
+                'metoda': method,
+                'liczba_obejrzanych_zdjec': lightboxImagesViewed,
+                'czas_sesji_sekundy': sessionDuration
             });
 
             lightboxImagesViewed = 0;
@@ -455,11 +450,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lightboxPrev) {
             lightboxPrev.addEventListener('click', function() {
                 lightboxImagesViewed++;
-                gtag('event', 'lightbox_interaction', {
-                    'event_category': 'Gallery',
-                    'action': 'navigate',
-                    'direction': 'previous',
-                    'method': 'button'
+                gtag('event', 'nawigacja_lightbox', {
+                    'event_category': 'Galeria',
+                    'akcja': 'nawigacja',
+                    'kierunek': 'poprzednie',
+                    'metoda': 'przycisk'
                 });
             });
         }
@@ -467,11 +462,11 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lightboxNext) {
             lightboxNext.addEventListener('click', function() {
                 lightboxImagesViewed++;
-                gtag('event', 'lightbox_interaction', {
-                    'event_category': 'Gallery',
-                    'action': 'navigate',
-                    'direction': 'next',
-                    'method': 'button'
+                gtag('event', 'nawigacja_lightbox', {
+                    'event_category': 'Galeria',
+                    'akcja': 'nawigacja',
+                    'kierunek': 'nastepne',
+                    'metoda': 'przycisk'
                 });
             });
         }
@@ -487,22 +482,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
             if (e.key === 'ArrowLeft') {
                 lightboxImagesViewed++;
-                gtag('event', 'lightbox_interaction', {
-                    'event_category': 'Gallery',
-                    'action': 'navigate',
-                    'direction': 'previous',
-                    'method': 'keyboard'
+                gtag('event', 'nawigacja_lightbox', {
+                    'event_category': 'Galeria',
+                    'akcja': 'nawigacja',
+                    'kierunek': 'poprzednie',
+                    'metoda': 'klawiatura'
                 });
             } else if (e.key === 'ArrowRight') {
                 lightboxImagesViewed++;
-                gtag('event', 'lightbox_interaction', {
-                    'event_category': 'Gallery',
-                    'action': 'navigate',
-                    'direction': 'next',
-                    'method': 'keyboard'
+                gtag('event', 'nawigacja_lightbox', {
+                    'event_category': 'Galeria',
+                    'akcja': 'nawigacja',
+                    'kierunek': 'nastepne',
+                    'metoda': 'klawiatura'
                 });
             } else if (e.key === 'Escape') {
-                closeLightboxWithTracking('keyboard_escape');
+                closeLightboxWithTracking('klawiatura_escape');
             }
         });
     }
@@ -513,11 +508,11 @@ document.addEventListener('DOMContentLoaded', function() {
             const newLang = this.getAttribute('data-lang');
             const previousLang = currentLanguage;
 
-            gtag('event', 'language_change', {
-                'event_category': 'Settings',
-                'language_from': previousLang,
-                'language_to': newLang,
-                'is_change': previousLang !== newLang
+            gtag('event', 'zmiana_jezyka', {
+                'event_category': 'Ustawienia',
+                'jezyk_z': previousLang,
+                'jezyk_na': newLang,
+                'czy_zmiana': previousLang !== newLang
             });
 
             if (previousLang !== newLang) {
@@ -537,10 +532,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const footerPrivacyLink = document.querySelector('footer a[href="polityka-prywatnosci.html"]');
     if (footerPrivacyLink) {
         footerPrivacyLink.addEventListener('click', function() {
-            gtag('event', 'footer_link_click', {
-                'event_category': 'Navigation',
-                'link_type': 'privacy_policy',
-                'link_text': this.textContent.trim()
+            gtag('event', 'klikniecie_stopka', {
+                'event_category': 'Nawigacja',
+                'typ_linku': 'polityka_prywatnosci',
+                'tekst_linku': this.textContent.trim()
             });
         });
     }
@@ -549,14 +544,14 @@ document.addEventListener('DOMContentLoaded', function() {
     socialLinks.forEach(link => {
         link.addEventListener('click', function() {
             const href = this.getAttribute('href');
-            let platform = 'unknown';
+            let platform = 'nieznana';
             if (href.includes('facebook.com')) platform = 'facebook';
             if (href.includes('instagram.com')) platform = 'instagram';
 
-            gtag('event', 'social_link_click', {
+            gtag('event', 'klikniecie_social_media', {
                 'event_category': 'Social',
-                'platform': platform,
-                'link_url': href
+                'platforma': platform,
+                'url_linku': href
             });
         });
     });
@@ -571,9 +566,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const resetIdleTimer = function() {
         if (!isUserActive) {
             const idleDuration = Math.round((Date.now() - lastActivityTime) / 1000);
-            gtag('event', 'user_activity_resumed', {
-                'event_category': 'Engagement',
-                'idle_duration_seconds': idleDuration
+            gtag('event', 'uzytkownik_wrocil', {
+                'event_category': 'Zaangazowanie',
+                'czas_nieaktywnosci_sekundy': idleDuration
             });
         }
 
@@ -587,9 +582,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 totalEngagementTime += Math.round((Date.now() - lastActivityTime) / 1000);
                 isUserActive = false;
 
-                gtag('event', 'user_idle', {
-                    'event_category': 'Engagement',
-                    'engagement_time_before_idle_seconds': totalEngagementTime
+                gtag('event', 'uzytkownik_nieaktywny', {
+                    'event_category': 'Zaangazowanie',
+                    'czas_aktywnosci_przed_nieaktywnoscia_sekundy': totalEngagementTime
                 });
             }
         }, IDLE_THRESHOLD);
@@ -614,12 +609,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
 
-        gtag('event', 'page_exit', {
-            'event_category': 'Engagement',
-            'total_time_on_page_seconds': totalTimeOnPage,
-            'engagement_time_seconds': totalEngagementTime,
-            'scroll_depth_reached': Math.max(...scrollTracked, 0),
-            'sections_visited': Object.keys(sectionViewedOnce).join(',')
+        gtag('event', 'opuszczenie_strony', {
+            'event_category': 'Zaangazowanie',
+            'calkowity_czas_na_stronie_sekundy': totalTimeOnPage,
+            'czas_aktywnosci_sekundy': totalEngagementTime,
+            'osiagnieta_glebokosc_przewijania': Math.max(...scrollTracked, 0),
+            'odwiedzone_sekcje': Object.keys(sectionViewedOnce).join(',')
         });
     });
 
@@ -637,10 +632,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 const trackingKey = entry.target.dataset.trackingKey;
                 if (!visibilityTracked[trackingKey]) {
                     visibilityTracked[trackingKey] = true;
-                    gtag('event', 'element_visible', {
-                        'event_category': 'Visibility',
-                        'element_name': entry.target.dataset.trackingName,
-                        'element_index': entry.target.dataset.trackingIndex || 0
+                    gtag('event', 'element_widoczny', {
+                        'event_category': 'Widocznosc',
+                        'nazwa_elementu': entry.target.dataset.trackingName,
+                        'indeks_elementu': entry.target.dataset.trackingIndex || 0
                     });
                 }
             }
@@ -672,55 +667,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const isEmail = /[^\s@]+@[^\s@]+\.[^\s@]+/.test(selectedText);
             const section = document.activeElement?.closest('section');
 
-            gtag('event', 'text_copied', {
-                'event_category': 'Engagement',
-                'copied_text': selectedText.substring(0, 100),
-                'text_length': selectedText.length,
-                'is_phone_number': isPhoneNumber,
-                'is_email': isEmail,
-                'section_id': section?.id || 'unknown'
+            gtag('event', 'skopiowanie_tekstu', {
+                'event_category': 'Zaangazowanie',
+                'skopiowany_tekst': selectedText.substring(0, 100),
+                'dlugosc_tekstu': selectedText.length,
+                'czy_numer_telefonu': isPhoneNumber,
+                'czy_email': isEmail,
+                'sekcja': section?.id || 'nieznana'
             });
-        }
-    });
-
-    const clickHistory = [];
-    const RAGE_CLICK_THRESHOLD = 3;
-    const RAGE_CLICK_WINDOW = 1000;
-    const RAGE_CLICK_DISTANCE = 50;
-
-    document.addEventListener('click', function(e) {
-        const now = Date.now();
-        clickHistory.push({ x: e.clientX, y: e.clientY, time: now });
-
-        const recentClicks = clickHistory.filter(click => now - click.time < RAGE_CLICK_WINDOW);
-
-        if (recentClicks.length >= RAGE_CLICK_THRESHOLD) {
-            const firstClick = recentClicks[0];
-            const allNearby = recentClicks.every(click => {
-                const distance = Math.sqrt(Math.pow(click.x - firstClick.x, 2) + Math.pow(click.y - firstClick.y, 2));
-                return distance < RAGE_CLICK_DISTANCE;
-            });
-
-            if (allNearby) {
-                const targetElement = e.target;
-                const section = targetElement.closest('section');
-
-                gtag('event', 'rage_click', {
-                    'event_category': 'UX Issues',
-                    'click_count': recentClicks.length,
-                    'target_element': targetElement.tagName.toLowerCase(),
-                    'target_class': targetElement.className.split(' ').slice(0, 3).join(' '),
-                    'section_id': section?.id || 'unknown',
-                    'page_x': e.pageX,
-                    'page_y': e.pageY
-                });
-
-                clickHistory.length = 0;
-            }
-        }
-
-        while (clickHistory.length > 0 && now - clickHistory[0].time > RAGE_CLICK_WINDOW) {
-            clickHistory.shift();
         }
     });
 
@@ -735,9 +689,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 charCardsViewedCount++;
 
                 if (charCardsViewedCount === totalCharCards) {
-                    gtag('event', 'all_characteristics_viewed', {
-                        'event_category': 'Engagement',
-                        'cards_count': totalCharCards
+                    gtag('event', 'wszystkie_cechy_obejrzane', {
+                        'event_category': 'Zaangazowanie',
+                        'liczba_kart': totalCharCards
                     });
                 }
             }
@@ -762,9 +716,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         if (viewedCount === modelCards.length && !allModelCardsViewed) {
             allModelCardsViewed = true;
-            gtag('event', 'all_models_viewed', {
-                'event_category': 'Engagement',
-                'models_count': modelCards.length
+            gtag('event', 'wszystkie_modele_obejrzane', {
+                'event_category': 'Zaangazowanie',
+                'liczba_modeli': modelCards.length
             });
         }
     }, { threshold: 0.6 });
