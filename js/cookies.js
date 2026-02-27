@@ -9,11 +9,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!banner) return;
 
     const savedConsent = localStorage.getItem('cookie_consent');
+    let bannerShownTime = null;
 
     if (savedConsent) {
         banner.style.display = 'none';
         const consent = JSON.parse(savedConsent);
         applyConsent(consent);
+    } else {
+        bannerShownTime = Date.now();
     }
 
     if (acceptAllBtn) {
@@ -23,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 marketing: true
             };
 
+            trackCookieDecision('accept_all', consent);
             saveConsent(consent);
             applyConsent(consent);
             hideBanner();
@@ -36,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 marketing: marketingCheckbox ? marketingCheckbox.checked : false
             };
 
+            trackCookieDecision('save_preferences', consent);
             saveConsent(consent);
             applyConsent(consent);
             hideBanner();
@@ -49,10 +54,35 @@ document.addEventListener('DOMContentLoaded', function() {
                 marketing: false
             };
 
+            trackCookieDecision('reject_all', consent);
             saveConsent(consent);
             applyConsent(consent);
             hideBanner();
         });
+    }
+
+    function trackCookieDecision(decisionType, consent) {
+        const timeToDecision = bannerShownTime ? Math.round((Date.now() - bannerShownTime) / 1000) : 0;
+
+        if (typeof gtag === 'function') {
+            gtag('event', 'cookie_consent_decision', {
+                'event_category': 'Cookie Consent',
+                'decision_type': decisionType,
+                'analytics_granted': consent.analytics,
+                'marketing_granted': consent.marketing,
+                'time_to_decision_seconds': timeToDecision
+            });
+        }
+
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({
+                'event': 'cookie_consent_decision',
+                'cookie_decision_type': decisionType,
+                'cookie_analytics_granted': consent.analytics,
+                'cookie_marketing_granted': consent.marketing,
+                'cookie_time_to_decision': timeToDecision
+            });
+        }
     }
 
     function saveConsent(consent) {
